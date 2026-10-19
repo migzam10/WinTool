@@ -1,4 +1,5 @@
 Set-StrictMode -Version Latest
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072
 Add-Type -AssemblyName PresentationFramework
 
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
@@ -113,13 +114,13 @@ $window.FindName("btnWlanProfiles").Add_Click({
 $window.FindName("btnWinUtil").Add_Click({
     # Chris Titus Tech WinUtil
     Start-Process powershell -Verb RunAs -ArgumentList @(
-        "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", "irm christitus.com/win | iex"
+        "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; irm christitus.com/win | iex"
     )
 })
 
 $window.FindName("btnActivarWin").Add_Click({
     Start-Process powershell -Verb RunAs -ArgumentList @(
-        "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", "irm https://get.activated.win | iex"
+        "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; irm https://get.activated.win | iex"
     )
 })
 
