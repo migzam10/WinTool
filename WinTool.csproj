@@ -6,6 +6,7 @@
     <TargetFramework>net45</TargetFramework>
     <AssemblyName>WinTool</AssemblyName>
     <RootNamespace>WinTool</RootNamespace>
+    <ApplicationIcon>src\icon.ico</ApplicationIcon>
     <ApplicationManifest>src\app.manifest</ApplicationManifest>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
@@ -27,8 +28,12 @@
 
   <ItemGroup>
     <Compile Include="src\Program.cs" />
+    <EmbeddedResource Include="src\icon.ico" LogicalName="icon.ico" />
     <EmbeddedResource Include="MainWindow.xaml" LogicalName="MainWindow.xaml" />
     <EmbeddedResource Include="scripts\maintenance.ps1" LogicalName="maintenance.ps1" />
+    <EmbeddedResource Include="scripts\cleaner.ps1" LogicalName="cleaner.ps1" />
+    <EmbeddedResource Include="scripts\network.ps1" LogicalName="network.ps1" />
+    <EmbeddedResource Include="scripts\sysinfo.ps1" LogicalName="sysinfo.ps1" />
   </ItemGroup>
 
 </Project>
